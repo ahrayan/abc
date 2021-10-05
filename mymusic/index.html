@@ -30,6 +30,7 @@
         btn.addEventListener('click', e => {
             if (playing) {
                 music.pause();
+                  audiomy.volume=0;
                 btn.textContent = "play";
                 playing = false
             } else {
