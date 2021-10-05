@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abc</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+
+    }
+</style>
+<body>
+    <div class="container">
+        <audio id="rington" src="audio/a.mp3"></audio>
+        <audio id="music" src="audio/audio2.mp3"></audio>
+        <i>Audio 1</i> <button id="btn" id="action">play</button>
+    </div>
+    <script>
+        let music = document.getElementById('music')
+        let audiomy = document.getElementById("rington")
+        let btn = document.getElementById('btn')
+        let playing = false;
+        let myaudi = false;
+        btn.addEventListener('click', e => {
+            if (playing) {
+                music.pause();
+                btn.textContent = "play";
+                playing = false
+            } else {
+                setInterval(() => {
+                    if (myaudi) {
+                        audiomy.pause()
+                        myaudi = false
+                    } else {
+                        audiomy.play();
+                        audiomy.volume=0.3;
+                        myaudi = true;
+                    }
+                }, 5000);
+                music.play()
+                btn.textContent = "pause";
+                playing = true
+            }
+        })
+    </script>
+</body>
+
+</html>
